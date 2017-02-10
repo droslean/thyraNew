@@ -71,7 +71,7 @@ func FindExits(s [][]Cube, area, room, pos string) [][]string {
 	south_id := 0
 
 	for y := 0; y < len(s); y++ {
-		for x := 0; x < len(s); x++ {
+		for x := 0; x < len(s[y]); x++ {
 			if s[x][y].ID == pos {
 				if x < len(s)-1 {
 					east_id, _ = strconv.Atoi(s[x+1][y].ID)
@@ -171,7 +171,7 @@ func PlayerCentricMap(p *Player, online map[string]bool, s [][]Cube) bytes.Buffe
 	var buffer bytes.Buffer
 	var buffer2 bytes.Buffer
 
-	r := 5
+	r := 8
 	px := 0
 	py := 0
 
@@ -189,9 +189,9 @@ func PlayerCentricMap(p *Player, online map[string]bool, s [][]Cube) bytes.Buffe
 	log.Debug(fmt.Sprintf("Position X:%d Y:%d", px, py))
 
 	for y1 := 0; y1 < len(s); y1++ {
-		for x1 := 0; x1 < len(s); x1++ {
+		for x1 := 0; x1 < len(s[y1]); x1++ {
 
-			if ((x1-px)*(x1-px) + (y1-py)*(y1-py)) < r*r {
+			if ((x1-px)*(x1-px) + (y1-py)*(y1-py)) <= r*r {
 				current, ok := online[s[x1][y1].ID]
 				switch {
 				case s[x1][y1].Type == "door":
@@ -223,6 +223,7 @@ func PlayerCentricMap(p *Player, online map[string]bool, s [][]Cube) bytes.Buffe
 		}
 	}
 	return buffer2
+
 }
 
 // Generate Map
