@@ -1,5 +1,5 @@
 package main
-
+// New test merge
 import (
 	"bytes"
 	"flag"
