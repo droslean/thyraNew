@@ -1,5 +1,5 @@
 package main
-// New test merge
+
 import (
 	"bytes"
 	"flag"
@@ -7,7 +7,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/droslean/thyraNew/server"
+	"github.com/droslean/thyranew/server"
 
 	log "gopkg.in/inconshreveable/log15.v2"
 	"gopkg.in/inconshreveable/log15.v2/stack"
