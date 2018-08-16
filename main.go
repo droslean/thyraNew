@@ -1,5 +1,6 @@
 package main
-
+// Test
+// test
 import (
 	"bytes"
 	"flag"
